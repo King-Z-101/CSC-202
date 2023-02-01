@@ -47,29 +47,34 @@ class Queue:
         else:
             raise IndexError
    
-   
-    # def dequeue(self):  
-    #     '''If Queue is not empty, dequeues (removes) item from Queue and returns item.  
-    #       If Queue is empty when dequeue is attempted, raises IndexError  
-    #       MUST have O(1) performance'''  
-    #     if self.is_empty() == False:
-    #         # do sum stuff
-    #     else:
-    #         raise IndexError
-    #     pass
-   
-   
+    def dequeue(self):  
+        '''If Queue is not empty, dequeues (removes) item from Queue and returns item.  
+          If Queue is empty when dequeue is attempted, raises IndexError  
+          MUST have O(1) performance'''  
+        if self.is_empty() == False:
+            pop = self.head.item
+            self.head = self.head.next
+            self.num_items -= 1 
+            return pop
+        else:
+            raise IndexError
+        pass
+ 
     def size(self):  
         '''Returns the number of elements currently in the Queue, not the capacity  
            MUST have O(1) performance'''  
         return self.num_items 
 
-q = Queue(5)  
-print(q.is_empty())  
-print(q.is_full())  
-q.enqueue('thing') 
-q.enqueue('that')
-print(q.size())
-print(q.is_empty())
-print(q.head.item)
-print(q.tail.item)
+# q = Queue(5)  
+# print(q.is_empty())  
+# print(q.is_full())  
+# q.enqueue('thing') 
+# q.enqueue('that')
+# q.enqueue('this')
+# print(q.size())
+# print(q.is_empty())
+# print(q.head.item)
+# print(q.tail.item)
+# print(q.dequeue())
+# print(q.head.item)
+# print(q.tail.item)
